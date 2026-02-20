@@ -1,7 +1,7 @@
 import asyncio
 import webbrowser
 from flask import Flask, render_template, request, jsonify
-from agents import MarketLogicAgent, FinancialAgent, CompetitiveAgent, SynthesizerAgent
+from agents import MarketLogicAgent, FinancialAgent, CompetitiveAgent, SynthesizerAgent, MarketingAgent
 
 app = Flask(__name__)
 
@@ -9,6 +9,7 @@ market_agent = MarketLogicAgent()
 financial_agent = FinancialAgent()
 competitive_agent = CompetitiveAgent()
 synthesizer = SynthesizerAgent()
+marketing_agent = MarketingAgent()
 
 
 @app.route('/')
@@ -54,11 +55,15 @@ async def run_analysis(idea: str, api_key: str) -> dict:
         api_key=api_key
     )
     
+    # Marketing agent runs after the final report is ready
+    marketing_content = await marketing_agent.analyze(idea, final_verdict, api_key)
+    
     return {
         'market_analysis': market_result,
         'financial_analysis': financial_result,
         'competitive_analysis': competitive_result,
-        'final_verdict': final_verdict
+        'final_verdict': final_verdict,
+        'marketing_content': marketing_content
     }
 
 
