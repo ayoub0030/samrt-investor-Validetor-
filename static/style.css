@@ -1,0 +1,153 @@
+/* Custom Markdown Styles that are hard to do with utility classes only */
+
+/* Enhanced Loading Spinner */
+.spinner {
+    position: relative;
+}
+
+.spinner > div {
+    position: absolute;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.animation-delay-150 {
+    animation-delay: 0.15s;
+}
+
+.animation-delay-300 {
+    animation-delay: 0.3s;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Pulse effect for spinner */
+.spinner > div:nth-child(1) {
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+}
+
+.spinner > div:nth-child(2) {
+    box-shadow: 0 0 8px rgba(188, 19, 254, 0.3);
+}
+
+.spinner > div:nth-child(3) {
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
+}
+
+/* Footer Icon Enhancements */
+footer a.group {
+    backdrop-filter: blur(10px);
+    transform: translateY(0);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+footer a.group:hover {
+    transform: translateY(-2px);
+}
+
+footer a.group svg {
+    transition: all 0.3s ease;
+}
+
+footer a.group:hover svg {
+    transform: scale(1.1);
+}
+
+/* Dropdown Styles */
+.dropdown-container {
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.dropdown-toggle {
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.dropdown-toggle:hover {
+    background: rgba(255,255,255,0.05);
+}
+
+.dropdown-toggle:hover span {
+    color: #66fcf1;
+}
+
+.dropdown-toggle:hover svg {
+    color: #66fcf1;
+}
+
+.markdown-content h1, 
+.markdown-content h2, 
+.markdown-content h3, 
+.markdown-content h4 {
+    color: #fff;
+    font-weight: 700;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    line-height: 1.3;
+}
+
+.markdown-content h1 { font-size: 1.8em; color: #66fcf1; }
+.markdown-content h2 { font-size: 1.5em; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.3em; }
+.markdown-content h3 { font-size: 1.25em; color: #e2e8f0; }
+
+.markdown-content p {
+    margin-bottom: 1.2em;
+}
+
+.markdown-content ul, 
+.markdown-content ol {
+    margin-bottom: 1.2em;
+    padding-left: 1.5em; /* LTR padding */
+}
+
+.markdown-content li {
+    margin-bottom: 0.5em;
+    position: relative;
+}
+
+.markdown-content ul li::before {
+    content: "•";
+    color: #66fcf1;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+.markdown-content strong {
+    color: #66fcf1;
+    font-weight: 700;
+}
+
+.markdown-content blockquote {
+    border-left: 4px solid #66fcf1; /* LTR border */
+    background: rgba(255,255,255,0.05);
+    padding: 1em;
+    border-radius: 8px;
+    font-style: italic;
+    margin: 1.5em 0;
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #050505; 
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333; 
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #66fcf1; 
+}
