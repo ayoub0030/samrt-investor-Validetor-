@@ -115,6 +115,15 @@
                     </div>
                 </div>
 
+                <div class="group">
+                    <label for="media-file" class="block text-sm font-medium text-gray-400 mb-2 transition group-hover:text-neonBlue">MEDIA FILE (Optional)</label>
+                    <div class="relative">
+                        <input type="file" id="media-file" accept="image/*,video/*"
+                            class="w-full bg-black/30 border border-gray-700 text-white rounded-xl px-5 py-4 focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue transition-all duration-300 file:mr-2 text-sm">
+                        <div class="absolute inset-0 rounded-xl bg-gradient-to-r from-neonBlue to-neonPurple opacity-0 transition duration-300 -z-10 blur group-hover:opacity-20"></div>
+                    </div>
+                </div>
+
                 <button type="submit" id="submit-btn" class="w-full relative group overflow-hidden rounded-xl p-[1px]">
                     <div class="absolute inset-0 bg-gradient-to-r from-neonBlue via-neonPurple to-neonBlue opacity-70 group-hover:opacity-100 animate-gradient-x transition-opacity duration-300"></div>
                     <div class="relative bg-black rounded-xl px-8 py-5 flex items-center justify-center space-x-3 transition-colors duration-300 group-hover:bg-black/80">
@@ -148,7 +157,7 @@
                     <div class="h-px flex-1 bg-gradient-to-r from-transparent to-gray-700"></div>
                 </div>
 
-                <div class="grid md:grid-cols-3 gap-6">
+                <div class="grid md:grid-cols-4 gap-6">
                     <!-- Market Card -->
                     <div class="result-card group" style="--accent: #3b82f6">
                         <div class="bg-glass backdrop-blur-md border border-glassBorder rounded-2xl overflow-hidden h-full transition-all duration-300 hover:border-blue-500/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)]">
@@ -208,6 +217,27 @@
                                     </svg>
                                 </button>
                                 <div id="competitive-dropdown" class="hidden p-6 prose prose-invert prose-sm max-w-none text-gray-300 leading-relaxed markdown-content"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Media Analysis Card -->
+                    <div class="result-card group" style="--accent: #f59e0b">
+                        <div class="bg-glass backdrop-blur-md border border-glassBorder rounded-2xl overflow-hidden h-full transition-all duration-300 hover:border-amber-500/50 hover:shadow-[0_0_30px_rgba(245,158,11,0.15)]">
+                            <div class="p-6 border-b border-white/5 bg-gradient-to-b from-amber-500/10 to-transparent">
+                                <div class="flex justify-between items-center">
+                                    <h3 class="text-xl font-bold text-amber-400">Media Analysis</h3>
+                                    <span class="text-xs font-mono text-amber-500/70 border border-amber-500/30 px-2 py-1 rounded">GPT-4O-MINI</span>
+                                </div>
+                            </div>
+                            <div class="dropdown-container">
+                                <button class="dropdown-toggle w-full p-4 text-left flex justify-between items-center hover:bg-white/5 transition-colors duration-200" onclick="toggleDropdown('media-dropdown')">
+                                    <span class="text-sm text-gray-400">View Analysis</span>
+                                    <svg class="w-4 h-4 text-gray-400 transform transition-transform duration-200" id="media-dropdown-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </button>
+                                <div id="media-dropdown" class="hidden p-6 prose prose-invert prose-sm max-w-none text-gray-300 leading-relaxed markdown-content"></div>
                             </div>
                         </div>
                     </div>

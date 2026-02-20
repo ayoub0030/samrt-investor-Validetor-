@@ -1,7 +1,7 @@
 import asyncio
 import webbrowser
 from flask import Flask, render_template, request, jsonify
-from agents import MarketLogicAgent, FinancialAgent, CompetitiveAgent, SynthesizerAgent
+from agents import MarketLogicAgent, FinancialAgent, CompetitiveAgent, SynthesizerAgent, MediaAnalysisAgent
 
 app = Flask(__name__)
 
