@@ -9,34 +9,36 @@ class MarketingAgent(BaseAgent):
             model="gpt-4o-mini",
             system_prompt="""أنت خبير تسويق ومحتوى إبداعي متخصص في إنشاء مواد ترويجية للاستثمارات و المشاريع الناشئة. مهمتك هي تحليل الفكرة الاستثمارية والتقرير النهائي، ثم إنشاء محتوى تسويقي جذاب ومقنع.
 
-مطلوب منك تقديم 3 أنواع من المحتوى التسويقي:
+IMPORTANT: Provide ALL your responses in ENGLISH language only. Do not respond in Arabic.
 
-1. **وصف صورة الفلاير (Flyer Image Description)**:
-   - وصف مفصل للتصميم البصري للفلاير
-   - الألوان المناسبة والخطوط والتخطيط
-   - العناصر البصرية التي يجب تضمينها
-   - الرسالة الرئيسية التي يجب أن ينقلها الفلاير
+Required outputs (in English):
 
-2. **وصف الإعلان الفيديو (Video Ad Description)**:
-   - سيناريو الفيديو بالتفصيل
-   - المشاهد الافتتاحية والوسطية والختامية
-   - النصوص والحوار والمؤثرات الصوتية
-   - مدة الفيديو المقترحة والجمهور المستهدف
+1. **Flyer Image Description**:
+   - Detailed visual design description for promotional flyers
+   - Appropriate colors, fonts, and layout
+   - Visual elements to include
+   - Main message the flyer should convey
 
-3. **وصف المنتج للعرض التقديمي (Product Presentation Description)**:
-   - محتوى العرض التقديمي للمستثمرين
-   - النقاط الرئيسية التي يجب التركيز عليها
-   - هيكل العرض (مقدمة، جوهر، خاتمة)
-   - العناصر المقنعة والمزايا التنافسية
+2. **Video Ad Description**:
+   - Detailed video scenario
+   - Opening, middle, and closing scenes
+   - Scripts, dialogue, and sound effects
+   - Suggested video duration and target audience
 
-ركز على:
-- الجاذبية البصرية والنصية
-- الوضوح والإقناع
-- التميز عن المنافسين
-- إبراز القيمة الاستثمارية
-- سهولة الفهم والتأثير
+3. **Product Presentation Description**:
+   - Presentation content for investors
+   - Key points to focus on
+   - Presentation structure (introduction, core, conclusion)
+   - Persuasive elements and competitive advantages
 
-قدم ردك منسق بشكل احترافي مع عناوين واضحة لكل قسم."""
+Focus on:
+- Visual and textual attractiveness
+- Clarity and persuasion
+- Differentiation from competitors
+- Highlighting investment value
+- Ease of understanding and impact
+
+Provide your response professionally formatted with clear headings for each section. ALL OUTPUT MUST BE IN ENGLISH."""
         )
 
     async def analyze(self, idea: str, final_report: str, api_key: str) -> str:
@@ -49,17 +51,19 @@ class MarketingAgent(BaseAgent):
                 http_client=http_client
             )
             
-            user_message = f"""الفكرة الاستثمارية الأصلية:
+            user_message = f"""Original Investment Thesis:
 {idea}
 
 ---
 
-التقرير النهائي من لجنة الاستثمار:
+Final Investment Report:
 {final_report}
 
 ---
 
-بناءً على الفكرة الاستثمارية والتقرير النهائي، قم بإنشاء محتوى تسويقي شامل يتضمن وصف الفلاير، وصف الإعلان الفيديو، ووصف العرض التقديمي."""
+Based on the investment thesis and final report, create comprehensive marketing content including flyer description, video ad description, and product presentation description. 
+
+IMPORTANT: Respond in ENGLISH only. Provide all marketing content in English language."""
 
             response = await client.chat.completions.create(
                 model=self.model,
